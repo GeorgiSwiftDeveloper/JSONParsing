@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A05F45C4728FCBC567EB6BD /* Pods_SecondTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EE7EF34F2B93D66078B8964 /* Pods_SecondTask.framework */; };
 		6ADFAA1821E540AF00780010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1721E540AF00780010 /* AppDelegate.swift */; };
-		6ADFAA1A21E540AF00780010 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1921E540AF00780010 /* ViewController.swift */; };
+		6ADFAA1A21E540AF00780010 /* myTastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1921E540AF00780010 /* myTastVC.swift */; };
 		6ADFAA1D21E540AF00780010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1B21E540AF00780010 /* Main.storyboard */; };
 		6ADFAA1F21E540B700780010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1E21E540B700780010 /* Assets.xcassets */; };
 		6ADFAA2221E540B700780010 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ADFAA2021E540B700780010 /* LaunchScreen.storyboard */; };
+		6ADFAA2E21E54DA700780010 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA2D21E54DA700780010 /* TaskTableViewCell.swift */; };
+		6ADFAA3021E552E400780010 /* ViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA2F21E552E400780010 /* ViewService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EE7EF34F2B93D66078B8964 /* Pods_SecondTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecondTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65C59F1A8DE422DDC7189709 /* Pods-SecondTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecondTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecondTask/Pods-SecondTask.debug.xcconfig"; sourceTree = "<group>"; };
 		6ADFAA1421E540AF00780010 /* SecondTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ADFAA1721E540AF00780010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6ADFAA1921E540AF00780010 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6ADFAA1921E540AF00780010 /* myTastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTastVC.swift; sourceTree = "<group>"; };
 		6ADFAA1C21E540AF00780010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6ADFAA1E21E540B700780010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6ADFAA2121E540B700780010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6ADFAA2321E540B700780010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ADFAA2D21E54DA700780010 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		6ADFAA2F21E552E400780010 /* ViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewService.swift; sourceTree = "<group>"; };
+		A879931FBAD1E6B686F65107 /* Pods-SecondTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecondTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecondTask/Pods-SecondTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A05F45C4728FCBC567EB6BD /* Pods_SecondTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +47,13 @@
 		6ADFAA0B21E540AF00780010 = {
 			isa = PBXGroup;
 			children = (
+				6ADFAA2921E54D4700780010 /* Model */,
+				6ADFAA2C21E54D6E00780010 /* View */,
+				6ADFAA2A21E54D5000780010 /* Controller */,
 				6ADFAA1621E540AF00780010 /* SecondTask */,
 				6ADFAA1521E540AF00780010 /* Products */,
+				FA86DF96E682A057226EA348 /* Pods */,
+				E86E774F691D8B4A6B053259 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +69,53 @@
 			isa = PBXGroup;
 			children = (
 				6ADFAA1721E540AF00780010 /* AppDelegate.swift */,
-				6ADFAA1921E540AF00780010 /* ViewController.swift */,
-				6ADFAA1B21E540AF00780010 /* Main.storyboard */,
 				6ADFAA1E21E540B700780010 /* Assets.xcassets */,
 				6ADFAA2021E540B700780010 /* LaunchScreen.storyboard */,
 				6ADFAA2321E540B700780010 /* Info.plist */,
 			);
 			path = SecondTask;
+			sourceTree = "<group>";
+		};
+		6ADFAA2921E54D4700780010 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6ADFAA2A21E54D5000780010 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6ADFAA1921E540AF00780010 /* myTastVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6ADFAA2C21E54D6E00780010 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6ADFAA1B21E540AF00780010 /* Main.storyboard */,
+				6ADFAA2F21E552E400780010 /* ViewService.swift */,
+				6ADFAA2D21E54DA700780010 /* TaskTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E86E774F691D8B4A6B053259 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7EF34F2B93D66078B8964 /* Pods_SecondTask.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA86DF96E682A057226EA348 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65C59F1A8DE422DDC7189709 /* Pods-SecondTask.debug.xcconfig */,
+				A879931FBAD1E6B686F65107 /* Pods-SecondTask.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6ADFAA2621E540B700780010 /* Build configuration list for PBXNativeTarget "SecondTask" */;
 			buildPhases = (
+				58F843D4D330048B8EACA181 /* [CP] Check Pods Manifest.lock */,
 				6ADFAA1021E540AF00780010 /* Sources */,
 				6ADFAA1121E540AF00780010 /* Frameworks */,
 				6ADFAA1221E540AF00780010 /* Resources */,
+				8D6C108372F24CA6815BD662 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +186,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		58F843D4D330048B8EACA181 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SecondTask-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D6C108372F24CA6815BD662 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SecondTask/Pods-SecondTask-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecondTask/Pods-SecondTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6ADFAA1021E540AF00780010 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ADFAA1A21E540AF00780010 /* ViewController.swift in Sources */,
+				6ADFAA3021E552E400780010 /* ViewService.swift in Sources */,
+				6ADFAA1A21E540AF00780010 /* myTastVC.swift in Sources */,
 				6ADFAA1821E540AF00780010 /* AppDelegate.swift in Sources */,
+				6ADFAA2E21E54DA700780010 /* TaskTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,10 +379,11 @@
 		};
 		6ADFAA2721E540B700780010 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65C59F1A8DE422DDC7189709 /* Pods-SecondTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4XLSSR63Y5;
+				DEVELOPMENT_TEAM = CVH85UHVWD;
 				INFOPLIST_FILE = SecondTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -298,10 +398,11 @@
 		};
 		6ADFAA2821E540B700780010 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A879931FBAD1E6B686F65107 /* Pods-SecondTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4XLSSR63Y5;
+				DEVELOPMENT_TEAM = CVH85UHVWD;
 				INFOPLIST_FILE = SecondTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
