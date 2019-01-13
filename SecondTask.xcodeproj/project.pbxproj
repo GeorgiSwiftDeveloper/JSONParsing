@@ -8,27 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		5A05F45C4728FCBC567EB6BD /* Pods_SecondTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EE7EF34F2B93D66078B8964 /* Pods_SecondTask.framework */; };
+		6A0CE16821EB12BD005C1F6B /* FormatPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CE16721EB12BD005C1F6B /* FormatPriceModel.swift */; };
+		6A0CE16A21EB1AD2005C1F6B /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CE16921EB1AD2005C1F6B /* StockTableViewCell.swift */; };
 		6ADFAA1821E540AF00780010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1721E540AF00780010 /* AppDelegate.swift */; };
-		6ADFAA1A21E540AF00780010 /* myTastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1921E540AF00780010 /* myTastVC.swift */; };
+		6ADFAA1A21E540AF00780010 /* getStockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1921E540AF00780010 /* getStockVC.swift */; };
 		6ADFAA1D21E540AF00780010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1B21E540AF00780010 /* Main.storyboard */; };
 		6ADFAA1F21E540B700780010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1E21E540B700780010 /* Assets.xcassets */; };
 		6ADFAA2221E540B700780010 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ADFAA2021E540B700780010 /* LaunchScreen.storyboard */; };
-		6ADFAA2E21E54DA700780010 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA2D21E54DA700780010 /* TaskTableViewCell.swift */; };
-		6ADFAA3021E552E400780010 /* ViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA2F21E552E400780010 /* ViewService.swift */; };
+		6ADFAA3021E552E400780010 /* ShadowBackgroudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA2F21E552E400780010 /* ShadowBackgroudView.swift */; };
+		6AFC8F5C21EAF8E9002EEAC8 /* DataServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC8F5B21EAF8E9002EEAC8 /* DataServiceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2EE7EF34F2B93D66078B8964 /* Pods_SecondTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecondTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C59F1A8DE422DDC7189709 /* Pods-SecondTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecondTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecondTask/Pods-SecondTask.debug.xcconfig"; sourceTree = "<group>"; };
+		6A0CE16721EB12BD005C1F6B /* FormatPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatPriceModel.swift; sourceTree = "<group>"; };
+		6A0CE16921EB1AD2005C1F6B /* StockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		6ADFAA1421E540AF00780010 /* SecondTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ADFAA1721E540AF00780010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6ADFAA1921E540AF00780010 /* myTastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTastVC.swift; sourceTree = "<group>"; };
+		6ADFAA1921E540AF00780010 /* getStockVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getStockVC.swift; sourceTree = "<group>"; };
 		6ADFAA1C21E540AF00780010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6ADFAA1E21E540B700780010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6ADFAA2121E540B700780010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6ADFAA2321E540B700780010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6ADFAA2D21E54DA700780010 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
-		6ADFAA2F21E552E400780010 /* ViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewService.swift; sourceTree = "<group>"; };
+		6ADFAA2F21E552E400780010 /* ShadowBackgroudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowBackgroudView.swift; sourceTree = "<group>"; };
+		6AFC8F5B21EAF8E9002EEAC8 /* DataServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceModel.swift; sourceTree = "<group>"; };
 		A879931FBAD1E6B686F65107 /* Pods-SecondTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecondTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecondTask/Pods-SecondTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,8 @@
 		6ADFAA2921E54D4700780010 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6AFC8F5B21EAF8E9002EEAC8 /* DataServiceModel.swift */,
+				6A0CE16721EB12BD005C1F6B /* FormatPriceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -86,7 +92,7 @@
 		6ADFAA2A21E54D5000780010 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6ADFAA1921E540AF00780010 /* myTastVC.swift */,
+				6ADFAA1921E540AF00780010 /* getStockVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,8 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				6ADFAA1B21E540AF00780010 /* Main.storyboard */,
-				6ADFAA2F21E552E400780010 /* ViewService.swift */,
-				6ADFAA2D21E54DA700780010 /* TaskTableViewCell.swift */,
+				6ADFAA2F21E552E400780010 /* ShadowBackgroudView.swift */,
+				6A0CE16921EB1AD2005C1F6B /* StockTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,10 +238,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ADFAA3021E552E400780010 /* ViewService.swift in Sources */,
-				6ADFAA1A21E540AF00780010 /* myTastVC.swift in Sources */,
+				6AFC8F5C21EAF8E9002EEAC8 /* DataServiceModel.swift in Sources */,
+				6ADFAA3021E552E400780010 /* ShadowBackgroudView.swift in Sources */,
+				6A0CE16821EB12BD005C1F6B /* FormatPriceModel.swift in Sources */,
+				6ADFAA1A21E540AF00780010 /* getStockVC.swift in Sources */,
+				6A0CE16A21EB1AD2005C1F6B /* StockTableViewCell.swift in Sources */,
 				6ADFAA1821E540AF00780010 /* AppDelegate.swift in Sources */,
-				6ADFAA2E21E54DA700780010 /* TaskTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
