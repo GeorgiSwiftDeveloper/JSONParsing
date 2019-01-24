@@ -12,10 +12,10 @@ class FormatPrice {
         let numberOfFormatter = NumberFormatter()
         numberOfFormatter.numberStyle = .decimal
         numberOfFormatter.maximumFractionDigits = 0
-        return numberOfFormatter.string(from: NSNumber(value: comingNumber))!
+        guard let result = numberOfFormatter.string(from: NSNumber(value: comingNumber)) else {
+            print("Error converting int - \(comingNumber)")
+            return ""
+        }
+        return result
     }
 }
-
-
-
-

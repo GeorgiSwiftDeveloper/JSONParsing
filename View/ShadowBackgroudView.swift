@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ShadowBackgroudView: UIView {
 
+class ShadowBackgroudView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.shadowOpacity = 0.95
@@ -18,7 +18,6 @@ class ShadowBackgroudView: UIView {
         self.layer.borderColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
         self.layer.borderWidth = 2
     }
-
 }
 
 class TableHeaderView: ShadowBackgroudView {

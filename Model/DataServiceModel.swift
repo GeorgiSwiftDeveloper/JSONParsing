@@ -9,29 +9,29 @@
 import Foundation
 import UIKit
 
-struct ReturnStockValues {
-    var numberCount: String
+struct StockData {
+    var numberOfStock: String
     var companyTitle: String
-    var symbolTitle: String
-    var priceCount: String
-    var pricechangeCount:  String
-    var volumeCount: Int
+    var symbolTitle: String?
+    var stockPrice: String
+    var stockPriceChange:  String
+    var stockVolume: Int
 }
-extension ReturnStockValues {
+extension StockData {
     init?(myJosn: [String: Any]) {
         let  number = String()
         let  symbol = myJosn["Symbol"] as? String ?? ""
         let  companyName = myJosn["CompanyName"] as? String ?? ""
         let  price = myJosn["Price"] as? String ?? ""
-        let  pricechange = myJosn["PricePercentChange"] as? String ?? ""
+        let  priceChange = myJosn["PricePercentChange"] as? String ?? ""
         let  volume = myJosn["Volume"] as? String ?? ""
         
-        self.numberCount = number
+        self.numberOfStock = number
         self.symbolTitle = symbol
         self.companyTitle = companyName
-        self.priceCount = price
-        self.pricechangeCount = pricechange
-        self.volumeCount = Int(volume)!
+        self.stockPrice = price
+        self.stockPriceChange = priceChange
+        self.stockVolume = Int(volume)!
     }
 }
 
