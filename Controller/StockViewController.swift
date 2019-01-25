@@ -16,10 +16,8 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        stockValueLoadFunc()
-        activityIndector()
-        
+            self.stockValueLoadFunc()
+            self.activityIndector()
     }
     
     func activityIndector() {
@@ -36,10 +34,16 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
                 return
             }
             if let returnedFunction = returnedFunction {
-                StockViewController.stockDataList = returnedFunction
-                self.stockCollectionView.reloadData()
-                self.activityIndecator.stopAnimating()
-                self.activityIndecator.hidesWhenStopped = true
+                //Treading
+                DispatchQueue.global(qos: .userInteractive).async {
+                    StockViewController.stockDataList = returnedFunction
+                }
+                DispatchQueue.main.async {
+                    self.stockCollectionView.reloadData()
+                    self.activityIndecator.stopAnimating()
+                    self.activityIndecator.hidesWhenStopped = true
+                }
+                
                 
             } else {
                 print("error - nil data")
@@ -50,10 +54,16 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBAction func sortSelectedColumn(_ selectedBtn: UIButton) {
         StockSorting.sortStockData.selectedColumnSort(myButton: selectedBtn) { (getStockData, error) in
             if error != nil  {
-                print("error\(String(describing: error?.localizedDescription))")
+                print("Error cant sort stock data\(String(describing: error?.localizedDescription))")
             }else {
-                StockViewController.stockDataList = getStockData!
-                self.stockCollectionView.reloadData()
+                DispatchQueue.global(qos: .userInteractive).async {
+                    StockViewController.stockDataList = getStockData!
+                    DispatchQueue.main.async {
+                         self.stockCollectionView.reloadData()
+                    }
+                   
+                }
+                
             }
         }
     }
