@@ -10,20 +10,18 @@ import Foundation
 import UIKit
 
 class StockSorting {
-    static let sortStockData = StockSorting()
     
-    var arrowUpImage = UIImage(named: "up-arrow")
-    var arrowDownImage = UIImage(named: "down-arrow")
+    private static var arrowUpImage = UIImage(named: "up-arrow")
+    private static  var arrowDownImage = UIImage(named: "down-arrow")
     
+    private static var buttonActive = true
     
-    var buttonActive = true
-    
-    func selectedColumnSort(myButton: UIButton ,getStockDataList: @escaping (_ returnStockValue: [StockData]? , _ error: Error?) -> ()) {
-     var getStockData =  StockViewController.stockDataList
+    static  func selectedColumnSort(myButton: UIButton ,stockDataList: [StockData]) -> [StockData] {
+     var getStockData =  stockDataList
         if myButton.tag == 1 {
             if buttonActive {
                 myButton.setImage(arrowUpImage, for: .normal)
-                getStockData.sort( by: { $0.symbolTitle! > $1.symbolTitle!})
+                getStockData.sort( by: { $0.symbolTitle > $1.symbolTitle})
             }else {
                 myButton.setImage(arrowDownImage, for: .normal)
                   getStockData.sort( by: { $0.numberOfStock < $1.numberOfStock})
@@ -60,7 +58,7 @@ class StockSorting {
             }
             buttonActive = !buttonActive
         }
-        getStockDataList(getStockData,nil)
+        return getStockData
     }
     
 }

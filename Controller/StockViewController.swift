@@ -9,15 +9,20 @@
 import UIKit
 class  StockViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StockCollectionViewCellDelegate{
     
-    static var stockDataList = [StockData]()
+    var stockDataList = [StockData]()
+    var originalStockDataList = [StockData]()
+
     
     @IBOutlet weak var stockCollectionView: UICollectionView!
     @IBOutlet weak var activityIndecator: UIActivityIndicatorView!
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            self.stockValueLoadFunc()
             self.activityIndector()
+            self.stockValueLoadFunc()
+        
     }
     
     func activityIndector() {
@@ -29,52 +34,39 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
     //MARK: - load JSON Function 
     func stockValueLoadFunc() {
         CallFunction.instance.loadStockInformationList() { (returnedFunction, error) in
-            if error != nil  {
-                print(error?.localizedDescription as Any)
-                return
-            }
-            if let returnedFunction = returnedFunction {
-                //Treading
-                DispatchQueue.global(qos: .userInteractive).async {
-                    StockViewController.stockDataList = returnedFunction
+                if error != nil  {
+                    print(error?.localizedDescription as Any)
+                    return
                 }
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if let returnedFunction = returnedFunction {
+                    //Treading
+                    self.stockDataList = returnedFunction
+                    
                     self.stockCollectionView.reloadData()
                     self.activityIndecator.stopAnimating()
                     self.activityIndecator.hidesWhenStopped = true
+                } else {
+                    print("error - nil data")
                 }
-                
-                
-            } else {
-                print("error - nil data")
             }
-        }
+            }
     }
     
-    @IBAction func sortSelectedColumn(_ selectedBtn: UIButton) {
-        StockSorting.sortStockData.selectedColumnSort(myButton: selectedBtn) { (getStockData, error) in
-            if error != nil  {
-                print("Error cant sort stock data\(String(describing: error?.localizedDescription))")
-            }else {
-                DispatchQueue.global(qos: .userInteractive).async {
-                    StockViewController.stockDataList = getStockData!
-                    DispatchQueue.main.async {
-                         self.stockCollectionView.reloadData()
-                    }
-                   
-                }
-                
-            }
-        }
+    @IBAction func sortSelectedColumn(_ selectedBtn: ColumnBtn) {
+        stockDataList =   StockSorting.selectedColumnSort(myButton: selectedBtn, stockDataList: self.stockDataList)
+        print(stockDataList)
+        self.stockCollectionView.reloadData()
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return   StockViewController.stockDataList.count
+        return   stockDataList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? StockCollectionViewCell
-        let stockData =   StockViewController.stockDataList[indexPath.item]
+        let stockData =   stockDataList[indexPath.item]
         cell?.configureCell(stockData: stockData, delegate: self)
         return cell!
     }

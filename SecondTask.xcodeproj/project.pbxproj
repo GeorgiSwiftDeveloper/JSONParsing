@@ -12,6 +12,7 @@
 		6A0CF78821F934B500153C40 /* StockSortingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CF78721F934B500153C40 /* StockSortingModel.swift */; };
 		6A85E73021F7CDBB002842CB /* CallJsonFunctionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A85E72F21F7CDBB002842CB /* CallJsonFunctionModel.swift */; };
 		6AA94CEB21F458E900D9D1D0 /* StockCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA94CEA21F458E900D9D1D0 /* StockCollectionViewCell.swift */; };
+		6ABC592022019B960064AFE7 /* ColumnBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABC591F22019B960064AFE7 /* ColumnBtn.swift */; };
 		6ADFAA1821E540AF00780010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1721E540AF00780010 /* AppDelegate.swift */; };
 		6ADFAA1A21E540AF00780010 /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1921E540AF00780010 /* StockViewController.swift */; };
 		6ADFAA1D21E540AF00780010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ADFAA1B21E540AF00780010 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		6A0CF78721F934B500153C40 /* StockSortingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSortingModel.swift; sourceTree = "<group>"; };
 		6A85E72F21F7CDBB002842CB /* CallJsonFunctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallJsonFunctionModel.swift; sourceTree = "<group>"; };
 		6AA94CEA21F458E900D9D1D0 /* StockCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCollectionViewCell.swift; sourceTree = "<group>"; };
+		6ABC591F22019B960064AFE7 /* ColumnBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnBtn.swift; sourceTree = "<group>"; };
 		6ADFAA1421E540AF00780010 /* SecondTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ADFAA1721E540AF00780010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6ADFAA1921E540AF00780010 /* StockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				6ADFAA1921E540AF00780010 /* StockViewController.swift */,
+				6ABC591F22019B960064AFE7 /* ColumnBtn.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				6A85E73021F7CDBB002842CB /* CallJsonFunctionModel.swift in Sources */,
 				6AA94CEB21F458E900D9D1D0 /* StockCollectionViewCell.swift in Sources */,
 				6A0CE16821EB12BD005C1F6B /* FormatPriceModel.swift in Sources */,
+				6ABC592022019B960064AFE7 /* ColumnBtn.swift in Sources */,
 				6A0CF78821F934B500153C40 /* StockSortingModel.swift in Sources */,
 				6ADFAA1A21E540AF00780010 /* StockViewController.swift in Sources */,
 				6ADFAA1821E540AF00780010 /* AppDelegate.swift in Sources */,
