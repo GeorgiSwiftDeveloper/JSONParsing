@@ -23,7 +23,6 @@ class CallFunction {
             }else {
                 do {
                     guard   let getStockJsonFormat = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [[String: Any]] else { return }
-                    print(getStockJsonFormat)
                     let compactMapStockValues = getStockJsonFormat.compactMap { dictionary in
                         return StockData(myJosn: dictionary)
                     }

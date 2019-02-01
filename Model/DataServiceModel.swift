@@ -9,13 +9,19 @@
 import Foundation
 import UIKit
 
+enum SortType{
+    case none
+    case asc
+    case desc
+}
 enum ColumnType {
-    case index, symbol, price, priceChange, volume
+    case symbol
+    case price
+    case priceChange
+    case volume
+    case def
 }
 
-enum SortType {
-    case none, asc, desc
-}
 struct StockData {
     var numberOfStock: String
     var companyTitle: String

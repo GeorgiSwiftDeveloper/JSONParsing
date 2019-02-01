@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,43 +29,67 @@
                                                 <state key="normal" title="Number">
                                                     <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="boollion" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfZ-5L-W9z">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfZ-5L-W9z" customClass="ColumnBtn" customModule="SecondTask" customModuleProvider="target">
                                                 <rect key="frame" x="132.5" y="0.0" width="137.5" height="43"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
-                                                <state key="normal" title="  Symbol" image="down-arrow">
+                                                <state key="normal" title="  Symbol">
                                                     <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="addColumn" value="symbol"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="columnType">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="sortSelectedColumn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hi2-7Q-3gN"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dje-aL-gjR">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dje-aL-gjR" customClass="ColumnBtn" customModule="SecondTask" customModuleProvider="target">
                                                 <rect key="frame" x="265" y="0.0" width="137" height="43"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
-                                                <state key="normal" title="  Price" image="down-arrow">
+                                                <state key="normal" title="  Price">
                                                     <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="columnType">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="sortSelectedColumn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nGq-DR-FK6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHl-t0-CXJ">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHl-t0-CXJ" customClass="ColumnBtn" customModule="SecondTask" customModuleProvider="target">
                                                 <rect key="frame" x="397" y="0.0" width="137.5" height="43"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
-                                                <state key="normal" title="  PriceChange" image="down-arrow">
+                                                <state key="normal" title="  PriceChange">
                                                     <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="columnType">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="sortSelectedColumn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nHi-Gk-6qg"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZa-qI-msE">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZa-qI-msE" customClass="ColumnBtn" customModule="SecondTask" customModuleProvider="target">
                                                 <rect key="frame" x="529.5" y="0.0" width="137.5" height="43"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
-                                                <state key="normal" title="  Volume" image="down-arrow">
+                                                <state key="normal" title="  Volume">
                                                     <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="columnType">
+                                                        <integer key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="sortSelectedColumn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dt6-85-w1z"/>
                                                 </connections>
@@ -209,15 +233,16 @@
                     </view>
                     <connections>
                         <outlet property="activityIndecator" destination="aLQ-tR-f9U" id="yOI-9C-Qkb"/>
+                        <outlet property="changeBtn" destination="zHl-t0-CXJ" id="VRW-dp-bJe"/>
+                        <outlet property="priceBtn" destination="Dje-aL-gjR" id="6Ro-oJ-xWJ"/>
                         <outlet property="stockCollectionView" destination="h5d-W9-xDZ" id="Wez-Uo-UuF"/>
+                        <outlet property="symbolBtn" destination="zfZ-5L-W9z" id="rHD-RB-BPn"/>
+                        <outlet property="volumeBtn" destination="NZa-qI-msE" id="Y7D-jC-K1x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1567" y="-3111"/>
+            <point key="canvasLocation" x="-2396" y="-3143"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="down-arrow" width="12" height="12"/>
-    </resources>
 </document>

@@ -10,55 +10,86 @@ import Foundation
 import UIKit
 
 class StockSorting {
-    
-    private static var arrowUpImage = UIImage(named: "up-arrow")
-    private static  var arrowDownImage = UIImage(named: "down-arrow")
-    
-    private static var buttonActive = true
-    
-    static  func selectedColumnSort(myButton: UIButton ,stockDataList: [StockData]) -> [StockData] {
-     var getStockData =  stockDataList
-        if myButton.tag == 1 {
-            if buttonActive {
-                myButton.setImage(arrowUpImage, for: .normal)
-                getStockData.sort( by: { $0.symbolTitle > $1.symbolTitle})
-            }else {
-                myButton.setImage(arrowDownImage, for: .normal)
-                  getStockData.sort( by: { $0.numberOfStock < $1.numberOfStock})
-            }
-            buttonActive = !buttonActive
+    static  func selectedColumnSort(myButton: UIButton ,sortedType: ColumnBtn , checkBool: Bool, columnSelected: ColumnType,stockDataList: [StockData]) -> [StockData] {
+        var getStockData =  stockDataList
+        if checkBool == false {
+            sortedType.sortType = .asc
         }
-        if myButton.tag == 2 {
-            if buttonActive {
-                myButton.setImage(arrowUpImage, for: .normal)
+        switch sortedType.sortType {
+        case .asc:
+            sortedType.sortType = .asc
+            myButton.setImage(sortedType.imageForColumn, for: .normal)
+        case .desc:
+            sortedType.sortType = .desc
+            myButton.setImage(sortedType.imageForColumn, for: .normal)
+        case .none:
+            sortedType.sortType = .none
+            myButton.setImage(nil, for: .normal)
+            getStockData.sort( by: { $0.numberOfStock < $1.numberOfStock})
+        }
+        switch columnSelected {
+        case .symbol:
+            switch sortedType.sortType {
+            case .asc:
+                getStockData.sort( by: { $0.symbolTitle.count > $1.symbolTitle.count})
+            case .desc:
+                getStockData.sort( by: { $0.symbolTitle.count < $1.symbolTitle.count})
+            default:
+                break
+            }
+        case .price:
+            switch sortedType.sortType {
+            case .asc:
                 getStockData.sort( by: { $0.stockPrice.count > $1.stockPrice.count})
-            }else {
-                myButton.setImage(arrowDownImage, for: .normal)
-                getStockData.sort( by: { $0.numberOfStock < $1.numberOfStock})
+            case .desc:
+                getStockData.sort( by: { $0.stockPrice.count < $1.stockPrice.count})
+            default:
+                break
             }
-            buttonActive = !buttonActive
-        }
-        if myButton.tag == 3 {
-            if buttonActive {
-                myButton.setImage(arrowUpImage, for: .normal)
+        case .priceChange:
+            switch sortedType.sortType {
+            case .asc:
+                getStockData.sort( by: { $0.stockPriceChange > $1.stockPriceChange})
+            case .desc:
                 getStockData.sort( by: { $0.stockPriceChange < $1.stockPriceChange})
-            }else {
-                myButton.setImage(arrowDownImage, for: .normal)
-                getStockData.sort( by: { $0.numberOfStock < $1.numberOfStock})
+            default:
+                break
             }
-            buttonActive = !buttonActive
-        }
-        if myButton.tag == 4 {
-            if buttonActive {
-                myButton.setImage(arrowUpImage, for: .normal)
+        case .volume:
+            switch sortedType.sortType {
+            case .asc:
+                getStockData.sort( by: { $0.stockVolume > $1.stockVolume})
+            case .desc:
                 getStockData.sort( by: { $0.stockVolume < $1.stockVolume})
-            }else {
-                myButton.setImage(arrowDownImage, for: .normal)
-                getStockData.sort( by: { $0.numberOfStock < $1.numberOfStock})
+            default:
+                break
             }
-            buttonActive = !buttonActive
+        default:
+            break
+        }
+        switch sortedType.sortType {
+        case .asc:
+            sortedType.sortType = .desc
+        case .desc:
+            sortedType.sortType = .none
+        case .none:
+            sortedType.sortType = .asc
         }
         return getStockData
     }
-    
 }
+//        switch sortedType.sortType {
+//        case .asc:
+//            sortedType.sortType = .asc
+//            myButton.setImage(sortedType.imageForColumn, for: .normal)
+//            getStockData.sort( by: { $0.stockPrice.count > $1.stockPrice.count})
+//            sortedType.sortType = .desc
+//        case .desc:
+//            sortedType.sortType = .desc
+//            myButton.setImage(sortedType.imageForColumn, for: .normal)
+//            getStockData.sort( by: { $0.symbolTitle.count < $1.symbolTitle.count})
+//            sortedType.sortType = .none
+//        default:
+//            break
+//        }
+

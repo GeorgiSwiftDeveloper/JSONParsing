@@ -93,6 +93,7 @@
 				6A0CE16721EB12BD005C1F6B /* FormatPriceModel.swift */,
 				6A85E72F21F7CDBB002842CB /* CallJsonFunctionModel.swift */,
 				6A0CF78721F934B500153C40 /* StockSortingModel.swift */,
+				6ABC591F22019B960064AFE7 /* ColumnBtn.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				6ADFAA1921E540AF00780010 /* StockViewController.swift */,
-				6ABC591F22019B960064AFE7 /* ColumnBtn.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

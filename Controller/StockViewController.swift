@@ -11,18 +11,23 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     var stockDataList = [StockData]()
     var originalStockDataList = [StockData]()
-
     
     @IBOutlet weak var stockCollectionView: UICollectionView!
     @IBOutlet weak var activityIndecator: UIActivityIndicatorView!
-    
 
+    @IBOutlet weak var symbolBtn: ColumnBtn!
+    @IBOutlet weak var priceBtn: ColumnBtn!
+    @IBOutlet weak var changeBtn: ColumnBtn!
+    @IBOutlet weak var volumeBtn: ColumnBtn!
     
+    
+    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
             self.activityIndector()
             self.stockValueLoadFunc()
-        
+    
     }
     
     func activityIndector() {
@@ -52,12 +57,33 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
             }
             }
     }
+    static var selectedColumnType = ColumnType.def
     
     @IBAction func sortSelectedColumn(_ selectedBtn: ColumnBtn) {
-        stockDataList =   StockSorting.selectedColumnSort(myButton: selectedBtn, stockDataList: self.stockDataList)
-        print(stockDataList)
+        priceBtn.setImage(nil, for: .normal)
+        changeBtn.setImage(nil, for: .normal)
+        volumeBtn.setImage(nil, for: .normal)
+        symbolBtn.setImage(nil, for: .normal)
+        var boolCheck: Bool = true
+        switch selectedBtn.tag {
+        case 0:
+            selectedBtn.columnType = .symbol
+        case 1:
+            selectedBtn.columnType = .price
+        case 2:
+            selectedBtn.columnType = .priceChange
+        case 3:
+            selectedBtn.columnType  = .volume
+        default:
+            break
+        }
+        if StockViewController.selectedColumnType != selectedBtn.columnType && StockViewController.selectedColumnType != ColumnType.def {
+            boolCheck = false
+            
+        }
+        StockViewController.selectedColumnType = selectedBtn.columnType
+        stockDataList =  StockSorting.selectedColumnSort(myButton: selectedBtn ,sortedType: selectedBtn, checkBool: boolCheck, columnSelected: selectedBtn.columnType, stockDataList: self.stockDataList)
         self.stockCollectionView.reloadData()
-    
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
