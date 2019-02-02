@@ -14,7 +14,8 @@ protocol StockCollectionViewCellDelegate: AnyObject {
 
 class StockCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var numberLbl: UILabel!
-    @IBOutlet weak var symbolBtn: UIButton!
+
+    @IBOutlet weak var symbolLbl: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var pricePercentLbl: UILabel!
     @IBOutlet weak var valueLbl: UILabel!
@@ -23,18 +24,21 @@ class StockCollectionViewCell: UICollectionViewCell {
     
     private var stockdata: StockData!
     
+   
+    
     func configureCell(stockData: StockData, delegate: StockCollectionViewCellDelegate) {
         self.delegate = delegate
         self.stockdata = stockData
         numberLbl.text = stockData.numberOfStock
-        symbolBtn.setTitle(stockData.symbolTitle, for: .normal)
+        symbolLbl.text = stockData.symbolTitle
         priceLbl.text  = stockData.stockPrice
         pricePercentLbl.text = "\(stockData.stockPriceChange) %"
         valueLbl.text = FormatPrice.addCommaFormatter(comingNumber: stockData.stockVolume)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(btnTapped(_:)))
+        symbolLbl.isUserInteractionEnabled = true
+        symbolLbl.addGestureRecognizer(tap)
     }
-    
-    
-    @IBAction func btnTapped() {
+    @objc func btnTapped(_ sender: UITapGestureRecognizer) {
          delegate?.symbolBtnTapped(stockData: stockdata)
     }
     

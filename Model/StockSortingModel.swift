@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class StockSorting {
-    static  func selectedColumnSort(myButton: UIButton ,sortedType: ColumnBtn , checkBool: Bool, columnSelected: ColumnType,stockDataList: [StockData]) -> [StockData] {
+    static  func selectedColumnSort(myButton: UIButton ,sortedType: ColumnBtn , columnCheck: Bool, selectedColumn: ColumnType,stockDataList: [StockData]) -> [StockData] {
         var getStockData =  stockDataList
-        if checkBool == false {
+        if columnCheck == false {
             sortedType.sortType = .asc
         }
         switch sortedType.sortType {
@@ -27,7 +27,7 @@ class StockSorting {
             myButton.setImage(nil, for: .normal)
             getStockData.sort( by: { $0.numberOfStock < $1.numberOfStock})
         }
-        switch columnSelected {
+        switch selectedColumn {
         case .symbol:
             switch sortedType.sortType {
             case .asc:

@@ -20,14 +20,10 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var changeBtn: ColumnBtn!
     @IBOutlet weak var volumeBtn: ColumnBtn!
     
-    
-    
- 
     override func viewDidLoad() {
         super.viewDidLoad()
             self.activityIndector()
             self.stockValueLoadFunc()
-    
     }
     
     func activityIndector() {
@@ -79,10 +75,9 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
         if StockViewController.selectedColumnType != selectedBtn.columnType && StockViewController.selectedColumnType != ColumnType.def {
             boolCheck = false
-            
         }
         StockViewController.selectedColumnType = selectedBtn.columnType
-        stockDataList =  StockSorting.selectedColumnSort(myButton: selectedBtn ,sortedType: selectedBtn, checkBool: boolCheck, columnSelected: selectedBtn.columnType, stockDataList: self.stockDataList)
+        stockDataList =  StockSorting.selectedColumnSort(myButton: selectedBtn ,sortedType: selectedBtn, columnCheck: boolCheck, selectedColumn: selectedBtn.columnType, stockDataList: self.stockDataList)
         self.stockCollectionView.reloadData()
     }
     
@@ -96,13 +91,12 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
         cell?.configureCell(stockData: stockData, delegate: self)
         return cell!
     }
-    
+
     func symbolBtnTapped(stockData: StockData) {
         let alert = UIAlertController(title: "Here is Company name", message: "\(stockData.companyTitle)" , preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
-        
     }
 }
 
