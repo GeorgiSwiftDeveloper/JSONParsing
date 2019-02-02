@@ -54,9 +54,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A84657B2205186F00D225C3 /* FileService */ = {
+			isa = PBXGroup;
+			children = (
+				6A0CE16721EB12BD005C1F6B /* FormatPriceModel.swift */,
+			);
+			path = FileService;
+			sourceTree = "<group>";
+		};
 		6ADFAA0B21E540AF00780010 = {
 			isa = PBXGroup;
 			children = (
+				6A84657B2205186F00D225C3 /* FileService */,
 				6ADFAA2921E54D4700780010 /* Model */,
 				6ADFAA2C21E54D6E00780010 /* View */,
 				6ADFAA2A21E54D5000780010 /* Controller */,
@@ -90,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				6AFC8F5B21EAF8E9002EEAC8 /* DataServiceModel.swift */,
-				6A0CE16721EB12BD005C1F6B /* FormatPriceModel.swift */,
 				6A85E72F21F7CDBB002842CB /* CallJsonFunctionModel.swift */,
 				6A0CF78721F934B500153C40 /* StockSortingModel.swift */,
 				6ABC591F22019B960064AFE7 /* ColumnBtn.swift */,

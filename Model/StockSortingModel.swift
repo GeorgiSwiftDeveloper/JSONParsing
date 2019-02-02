@@ -78,18 +78,3 @@ class StockSorting {
         return getStockData
     }
 }
-//        switch sortedType.sortType {
-//        case .asc:
-//            sortedType.sortType = .asc
-//            myButton.setImage(sortedType.imageForColumn, for: .normal)
-//            getStockData.sort( by: { $0.stockPrice.count > $1.stockPrice.count})
-//            sortedType.sortType = .desc
-//        case .desc:
-//            sortedType.sortType = .desc
-//            myButton.setImage(sortedType.imageForColumn, for: .normal)
-//            getStockData.sort( by: { $0.symbolTitle.count < $1.symbolTitle.count})
-//            sortedType.sortType = .none
-//        default:
-//            break
-//        }
-

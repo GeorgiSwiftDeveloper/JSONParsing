@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class ColumnBtn: UIButton {
     var imageForColumn = UIImage()
     var arrowUpImage = UIImage(named: "up-arrow")
@@ -19,7 +20,7 @@ class ColumnBtn: UIButton {
             case .desc:
                 imageForColumn = arrowDownImage!
             case .none:
-               break
+                break
             }
         }
     }
