@@ -100,7 +100,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="laK-rP-PaS" secondAttribute="trailing" id="DUT-p9-v5M"/>
                                     <constraint firstItem="laK-rP-PaS" firstAttribute="top" secondItem="hXX-Tu-zFT" secondAttribute="top" id="Lyo-t9-jL1"/>
@@ -116,7 +116,7 @@
                                     </activityIndicatorView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h5d-W9-xDZ">
                                         <rect key="frame" x="0.0" y="0.0" width="667" height="334"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="25" id="1du-KO-8pd">
                                             <size key="itemSize" width="665" height="41"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -173,7 +173,7 @@
                                                                     </constraints>
                                                                 </stackView>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="Nnv-ur-xdE" secondAttribute="bottom" id="Bdv-oY-zgr"/>
                                                                 <constraint firstItem="Nnv-ur-xdE" firstAttribute="top" secondItem="EUR-19-toV" secondAttribute="top" id="SEF-iv-Ucc"/>
@@ -229,16 +229,16 @@
                     </view>
                     <connections>
                         <outlet property="activityIndecator" destination="aLQ-tR-f9U" id="yOI-9C-Qkb"/>
-                        <outlet property="changeBtn" destination="zHl-t0-CXJ" id="VRW-dp-bJe"/>
-                        <outlet property="priceBtn" destination="Dje-aL-gjR" id="6Ro-oJ-xWJ"/>
                         <outlet property="stockCollectionView" destination="h5d-W9-xDZ" id="Wez-Uo-UuF"/>
-                        <outlet property="symbolBtn" destination="zfZ-5L-W9z" id="rHD-RB-BPn"/>
-                        <outlet property="volumeBtn" destination="NZa-qI-msE" id="Y7D-jC-K1x"/>
+                        <outletCollection property="columnButtons" destination="zfZ-5L-W9z" collectionClass="NSMutableArray" id="SOT-qC-CJo"/>
+                        <outletCollection property="columnButtons" destination="Dje-aL-gjR" collectionClass="NSMutableArray" id="yga-iu-V1Z"/>
+                        <outletCollection property="columnButtons" destination="zHl-t0-CXJ" collectionClass="NSMutableArray" id="GnF-Q0-G6Q"/>
+                        <outletCollection property="columnButtons" destination="NZa-qI-msE" collectionClass="NSMutableArray" id="pWd-0e-u6W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2660" y="-3306"/>
+            <point key="canvasLocation" x="-2448" y="-3287"/>
         </scene>
     </scenes>
 </document>

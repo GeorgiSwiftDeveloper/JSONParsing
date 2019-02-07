@@ -10,70 +10,47 @@ import Foundation
 import UIKit
 
 class StockSorting {
-    static  func selectedColumnSort(myButton: UIButton ,sortedType: ColumnBtn , columnCheck: Bool, selectedColumn: ColumnType,stockDataList: [StockData]) -> [StockData] {
+    static  func selectedColumnSort(sortedType: SortType, selectedColumn: ColumnType, stockDataList: [StockData]) -> [StockData] {
+        
         var getStockData =  stockDataList
-        if columnCheck == false {
-            sortedType.sortType = .asc
-        }
-        switch sortedType.sortType {
-        case .asc:
-            sortedType.sortType = .asc
-            myButton.setImage(sortedType.imageForColumn, for: .normal)
-        case .desc:
-            sortedType.sortType = .desc
-            myButton.setImage(sortedType.imageForColumn, for: .normal)
-        case .none:
-            sortedType.sortType = .none
-            myButton.setImage(nil, for: .normal)
-            getStockData.sort( by: { $0.numberOfStock < $1.numberOfStock})
-        }
+        
         switch selectedColumn {
         case .symbol:
-            switch sortedType.sortType {
+            switch sortedType {
             case .asc:
-                getStockData.sort( by: { $0.symbolTitle.count > $1.symbolTitle.count})
+                getStockData.sort( by: { $0.symbol < $1.symbol})
             case .desc:
-                getStockData.sort( by: { $0.symbolTitle.count < $1.symbolTitle.count})
+                getStockData.sort( by: { $0.symbol > $1.symbol})
             default:
                 break
             }
         case .price:
-            switch sortedType.sortType {
+            switch sortedType {
             case .asc:
-                getStockData.sort( by: { $0.stockPrice.count > $1.stockPrice.count})
+                getStockData.sort( by: { $0.price < $1.price})
             case .desc:
-                getStockData.sort( by: { $0.stockPrice.count < $1.stockPrice.count})
+                getStockData.sort( by: { $0.price > $1.price})
             default:
                 break
             }
         case .priceChange:
-            switch sortedType.sortType {
+            switch sortedType {
             case .asc:
-                getStockData.sort( by: { $0.stockPriceChange > $1.stockPriceChange})
+                getStockData.sort( by: { $0.priceChange < $1.priceChange})
             case .desc:
-                getStockData.sort( by: { $0.stockPriceChange < $1.stockPriceChange})
+                getStockData.sort( by: { $0.priceChange > $1.priceChange})
             default:
                 break
             }
         case .volume:
-            switch sortedType.sortType {
+            switch sortedType {
             case .asc:
-                getStockData.sort( by: { $0.stockVolume > $1.stockVolume})
+                getStockData.sort( by: { $0.volume < $1.volume})
             case .desc:
-                getStockData.sort( by: { $0.stockVolume < $1.stockVolume})
+                getStockData.sort( by: { $0.volume > $1.volume})
             default:
                 break
             }
-        default:
-            break
-        }
-        switch sortedType.sortType {
-        case .asc:
-            sortedType.sortType = .desc
-        case .desc:
-            sortedType.sortType = .none
-        case .none:
-            sortedType.sortType = .asc
         }
         return getStockData
     }

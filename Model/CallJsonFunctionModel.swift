@@ -15,29 +15,25 @@ class CallFunction {
     
     func loadStockInformationList(loadFunctionComplete: @escaping (_ returnStockValue: [StockData]?, _ error: Error?) -> ()) {
         guard let url = URL(string: urlPath) else {return}
-        var stockValueReturn = [StockData]()
+        
         let getUrlInformation = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil  {
+            if error != nil || data == nil  {
                 print("Cant find url")
                 loadFunctionComplete(nil, error)
-            }else {
+            } else {
                 do {
-                    guard   let getStockJsonFormat = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [[String: Any]] else { return }
-                    let compactMapStockValues = getStockJsonFormat.compactMap { dictionary in
-                        return StockData(myJosn: dictionary)
+                    guard let getStockJsonFormat = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [[String: Any]] else { return }
+                    var stockValueReturn = [StockData]()
+                    for index in 0..<getStockJsonFormat.count {
+                        let stockData = StockData(myJosn: getStockJsonFormat[index], index: index)
+                        stockValueReturn.append(stockData)
                     }
-                    var index: Int = 0
-                    for stockValues in compactMapStockValues {
-                        let propertyValue = StockData(numberOfStock: "\(index + 1)", companyTitle: stockValues.companyTitle, symbolTitle: stockValues.symbolTitle, stockPrice: stockValues.stockPrice, stockPriceChange: stockValues.stockPriceChange, stockVolume: stockValues.stockVolume)
-                        stockValueReturn.append(propertyValue)
-                        index += 1
-                    }
-                }catch{
+                    loadFunctionComplete(stockValueReturn,nil)
+                } catch {
                     print("Cant find stock values \(error.localizedDescription)")
                     loadFunctionComplete(nil, error)
                 }
             }
-            loadFunctionComplete(stockValueReturn,nil)
         }
         getUrlInformation.resume()
     }

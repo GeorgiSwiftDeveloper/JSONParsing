@@ -26,11 +26,11 @@ class StockCollectionViewCell: UICollectionViewCell {
     func configureCell(stockData: StockData, delegate: StockCollectionViewCellDelegate) {
         self.delegate = delegate
         self.stockdata = stockData
-        numberLbl.text = stockData.numberOfStock
-        symbolLbl.text = stockData.symbolTitle
-        priceLbl.text  = stockData.stockPrice
-        pricePercentLbl.text = "\(stockData.stockPriceChange) %"
-        valueLbl.text = FormatPrice.addCommaFormatter(comingNumber: stockData.stockVolume)
+        numberLbl.text = "\(stockData.index)"
+        symbolLbl.text = stockData.symbol
+        priceLbl.text  = "\(stockData.price)"
+        pricePercentLbl.text = "\(stockData.priceChange) %"
+        valueLbl.text = FormatPrice.addCommaFormatter(comingNumber: stockData.volume)
         let tap = UITapGestureRecognizer(target: self, action: #selector(SymbolLblTapped(_:)))
         symbolLbl.isUserInteractionEnabled = true
         symbolLbl.addGestureRecognizer(tap)

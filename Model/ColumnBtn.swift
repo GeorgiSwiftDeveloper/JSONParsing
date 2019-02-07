@@ -12,21 +12,17 @@ class ColumnBtn: UIButton {
     var imageForColumn = UIImage()
     var arrowUpImage = UIImage(named: "up-arrow")
     var arrowDownImage = UIImage(named: "down-arrow")
-    var sortType: SortType = .asc {
+    var sortType: SortType = .none {
         didSet {
-            switch sortType{
+            switch sortType {
             case .asc:
-                imageForColumn = arrowUpImage!
+                self.setImage(arrowUpImage, for: .normal)
             case .desc:
-                imageForColumn = arrowDownImage!
+                self.setImage(arrowDownImage, for: .normal)
             case .none:
+                self.setImage(nil, for: .normal)
                 break
             }
-        }
-    }
-    var columnType: ColumnType = .symbol {
-        didSet {
-            
         }
     }
 }

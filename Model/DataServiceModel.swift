@@ -13,40 +13,41 @@ enum SortType{
     case none
     case asc
     case desc
+    
+    var next: SortType {
+        switch self {
+        case .asc: return .desc
+        case .desc: return .none
+        case .none: return .asc
+        }
+    }
 }
 enum ColumnType {
     case symbol
     case price
     case priceChange
     case volume
-    case def
 }
 
-struct StockData {
-    var numberOfStock: String
+class StockData: NSObject {
+    var index: Int
     var companyTitle: String
-    var symbolTitle: String
-    var stockPrice: String
-    var stockPriceChange:  String
-    var stockVolume: Int
-}
-extension StockData {
-    init?(myJosn: [String: Any]) {
-        let  number = String()
-        let  symbol = myJosn["Symbol"] as? String ?? ""
-        let  companyName = myJosn["CompanyName"] as? String ?? ""
-        let  price = myJosn["Price"] as? String ?? ""
-        let  priceChange = myJosn["PricePercentChange"] as? String ?? ""
-        let  volume = myJosn["Volume"] as? String ?? ""
-        
-        self.numberOfStock = number
-        self.symbolTitle = symbol
-        self.companyTitle = companyName
-        self.stockPrice = price
-        self.stockPriceChange = priceChange
-        self.stockVolume = Int(volume) ?? 0
+    var symbol: String
+    var price: Double
+    var priceChange:  Double
+    var volume: Int
+    
+    init(myJosn: [String: Any], index: Int) {
+        self.index = index
+        self.symbol = myJosn["Symbol"] as? String ?? ""
+        self.companyTitle = myJosn["CompanyName"] as? String ?? ""
+        self.price = Double(myJosn["Price"] as? String ?? "") ?? 0.0
+        self.priceChange = Double(myJosn["PricePercentChange"] as? String ?? "") ?? 0.0
+        self.volume = Int(myJosn["Volume"] as? String ?? "") ?? 0
     }
 }
+
+
 
 
 

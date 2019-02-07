@@ -15,10 +15,8 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var stockCollectionView: UICollectionView!
     @IBOutlet weak var activityIndecator: UIActivityIndicatorView!
 
-    @IBOutlet weak var symbolBtn: ColumnBtn!
-    @IBOutlet weak var priceBtn: ColumnBtn!
-    @IBOutlet weak var changeBtn: ColumnBtn!
-    @IBOutlet weak var volumeBtn: ColumnBtn!
+    @IBOutlet  var columnButtons: [ColumnBtn]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +40,8 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
             DispatchQueue.main.async {
                 if let returnedFunction = returnedFunction {
                     //Treading
-                    self.stockDataList = returnedFunction
+                    self.originalStockDataList = returnedFunction
+                    self.stockDataList = self.originalStockDataList
                     
                     self.stockCollectionView.reloadData()
                     self.activityIndecator.stopAnimating()
@@ -53,31 +52,12 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
             }
             }
     }
-    static var selectedColumnType = ColumnType.def
+    
     
     @IBAction func sortSelectedColumn(_ selectedBtn: ColumnBtn) {
-        priceBtn.setImage(nil, for: .normal)
-        changeBtn.setImage(nil, for: .normal)
-        volumeBtn.setImage(nil, for: .normal)
-        symbolBtn.setImage(nil, for: .normal)
-        var boolCheck: Bool = true
-        switch selectedBtn.tag {
-        case 0:
-            selectedBtn.columnType = .symbol
-        case 1:
-            selectedBtn.columnType = .price
-        case 2:
-            selectedBtn.columnType = .priceChange
-        case 3:
-            selectedBtn.columnType  = .volume
-        default:
-            break
-        }
-        if StockViewController.selectedColumnType != selectedBtn.columnType && StockViewController.selectedColumnType != ColumnType.def {
-            boolCheck = false
-        }
-        StockViewController.selectedColumnType = selectedBtn.columnType
-        stockDataList =  StockSorting.selectedColumnSort(myButton: selectedBtn ,sortedType: selectedBtn, columnCheck: boolCheck, selectedColumn: selectedBtn.columnType, stockDataList: self.stockDataList)
+        columnButtons.forEach { $0.setImage(nil, for: .normal) }
+        selectedBtn.sortType = selectedBtn.sortType.next
+        stockDataList = StockSorting.selectedColumnSort(sortedType: selectedBtn.sortType, selectedColumn: columnType(for: selectedBtn.tag), stockDataList: self.originalStockDataList)
         self.stockCollectionView.reloadData()
     }
     
@@ -93,10 +73,26 @@ class  StockViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
     func symbolBtnTapped(stockData: StockData) {
-        let alert = UIAlertController(title: "Here is Company name", message: "\(stockData.companyTitle)" , preferredStyle: .alert)
+        let alert = UIAlertController(title: "Company name is", message: "\(stockData.companyTitle)" , preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func columnType(for columnIndex: Int) -> ColumnType {
+        switch columnIndex {
+        case 0:
+            return .symbol
+        case 1:
+            return .price
+        case 2:
+            return .priceChange
+        case 3:
+            return .volume
+        default:
+            return .symbol
+        }
     }
 }
 
